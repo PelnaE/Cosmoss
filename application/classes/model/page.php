@@ -24,10 +24,10 @@ class Model_Page extends Model
         ->execute();
     }
 
-    public function update_page($title,$content,$id)
+    public function update_page(array $data, $id)
     {
         return DB::update('pages')
-        ->set(array('title' => $title, 'content' => $content))
+        ->set($data)
         ->where('id', '=', $id)
         ->execute();
     }
@@ -39,10 +39,10 @@ class Model_Page extends Model
         ->execute();
     }
 
-    public function insert_page($title,$content,$author,$date)
+    public function insert_page(array $data)
     {
-        return DB::insert('pages', array('title','content', 'author','date'))
-        ->values(array($title, $content, $author, $date))
+        return DB::insert('pages', array_keys($data))
+        ->values(array_values($data))
         ->execute();
     }
 }

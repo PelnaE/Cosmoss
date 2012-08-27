@@ -40,7 +40,12 @@ class Controller_CP_Pages extends Controller_Template
             $post_title   = $this->request->post('title');
             $post_content = $this->request->post('content');
 
-            $update_page  = $page->update_page($post_title, $post_content, $page_id);
+            $data         = array(
+                'title'   => $post_title,
+                'content' => $post_content,
+                );
+
+            $update_page  = $page->update_page($data, $page_id);
 
             if (!$update_page) {
                 throw new Exception('Check fields!');
@@ -105,7 +110,15 @@ class Controller_CP_Pages extends Controller_Template
             }
 
             $page        = new Model_Page();
-            $insert_page = $page->insert_page($post_title, $post_content, $post_author, $post_date);
+
+            $data        = array(
+                'title' => $post_title,
+                'content' => $post_content,
+                'author'  => $post_author,
+                'date'    => $date,
+                );
+
+            $insert_page = $page->insert_page($data);
 
             if (!$insert_page) {
                 throw new Exception('Check if you are connected to database!');
