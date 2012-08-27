@@ -1,0 +1,5 @@
+application/cache/
+application/logs/
+modules/
+system/
+secret/

@@ -1,0 +1,73 @@
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+    padding:0;
+}
+body{
+    font: 12px Verdana;
+}
+a:link, a:visited{
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px dotted #222;
+}
+a:hover{
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px dotted #111;
+}
+.content{
+    padding: 15px;
+}
+.footer{
+    padding: 13px;
+    font-size: 12px;
+    clear:both;
+}
+.article{
+    padding: 5px;
+}
+.article p{
+    margin: 3px;
+}
+#container{
+    width: 650px;
+    margin: 0px auto;
+    padding: 15px;
+    
+}
+input, textarea, button {
+	border: 1px solid #d2d2d2;
+	font-family: Helvetica, Arial;
+                font-size: 11.5px;
+	margin: 5px 0;
+                padding: 4.5px;
+}
+textarea {
+	font-family: Helvetica, Arial;
+	width: 570px;
+	height: 150px;
+}
+input{
+    width: 570px;
+}
+.admin-sidebar{
+    float:left;
+    width: 130px;
+}
+.admin-content{
+    float:left;
+    width: 450px;
+}
+.menu-block-first{
+    margin-bottom: 3px;
+}
+.menu-block {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.menu-block-end{
+    margin-top: 3px;
+}
+p.menu-item{
+    padding: 3px;
+}
