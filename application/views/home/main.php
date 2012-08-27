@@ -5,7 +5,7 @@ if (!empty($entries)): //Checks if in database are any entry
         <div class="article">
             <h2><a href="<?php echo URL::site('entry/'.$entry['id'].'/'.$entry['slug']); ?>"><?php echo $entry['title']; ?></a></h2>
             <p><?= __('entry_created') ?> <?php echo date('d.m.Y H:i:s', $entry['date']); ?> <?= __('entry_author') ?> <?php echo $entry['author']; ?></p>
-            <p><?php echo Text::markdown($entry['content']); //This is Markdown. See MARKDOWN in github.  ?></p>
+            <p><?php echo Darkmown::parse($entry['content']); //This is Markdown. See MARKDOWN in github.  ?></p>
         </div>
         <?php
     endforeach;
