@@ -95,9 +95,9 @@ class Controller_CP_Pages extends Controller_Template
             $post_date    = time();
 
             if (
-                empty($post_title) and
-                empty($post_content) and
-                empty($post_author) and
+                empty($post_title) &&
+                empty($post_content) &&
+                empty($post_author) &&
                 empty($post_date
                     ))
             {
