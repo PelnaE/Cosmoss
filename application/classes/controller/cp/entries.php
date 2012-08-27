@@ -86,11 +86,20 @@ class Controller_CP_Entries extends Controller_Template {
             if (empty($post_title) and empty($post_content) and empty($post_author) and empty($post_date)) {
                 throw new Exception('Please don`t make empty fields!');
             }
-            $model_for_entries = Model::factory('entry');
+            $entry = new Model_Entry();
             if(empty($post_slug)){
                 $post_slug = URL::title($post_title, '_');
             }
-            $insert_entry = $model_for_entries->insert_entry($post_title, $post_slug,$post_content, $post_author, $post_date);
+
+            $data         = array(
+                'title'   => $post_title,
+                'slug'    => $post_slug,
+                'content' => $post_content,
+                'author'  => $post_author,
+                'date'    => $post_date
+                );
+
+            $insert_entry = $entry->insert_entry($data);
             if (!$insert_entry) {
                 throw new Exception('Check if you are connected to database!');
             }

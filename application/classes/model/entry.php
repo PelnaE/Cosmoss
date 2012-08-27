@@ -3,10 +3,10 @@
 class Model_Entry extends Model
 {
 
-    public function insert_entry($title, $slug, $content,$author,$date)
+    public function insert_entry(array $data)
     {
-        return DB::insert('entries', array('title','slug','content', 'author','date'))
-        ->values(array($title, $slug, $content, $author, $date))
+        return DB::insert('entries', array_keys($data))
+        ->values(array_values($data))
         ->execute();
     }
 
