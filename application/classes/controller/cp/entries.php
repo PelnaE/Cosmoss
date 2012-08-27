@@ -54,8 +54,8 @@ class Controller_CP_Entries extends Controller_Template {
 
         }
 
-        $view->entries = $entry;
-        $view->success = Session::instance()->get_once('Entry.success');
+        $view->entries           = $entry;
+        $view->success           = Session::instance()->get_once('Entry.success');
         $this->template->content = $view->render();
     }
 
