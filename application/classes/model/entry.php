@@ -46,10 +46,10 @@ class Model_Entry extends Model
         ->execute();
     }
 
-    public function update_entry($title,$content,$id)
+    public function update_entry(array $data, $id)
     {
         return DB::update('entries')
-        ->set(array('title' => $title, 'content' => $content))
+        ->set($data)
         ->where('id', '=', $id)
         ->execute();
     }

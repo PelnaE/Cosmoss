@@ -7,27 +7,29 @@ class Controller_CP_Entries extends Controller_Template {
     public function action_index()
     {
         $this->template->page_title = 'List of Entries';
-        $model_for_entries = Model::factory('entry');
-        $get_entries = $model_for_entries->get_entries_list();
-        $view = View::factory('cp/entries/list');
-        $view->entries = $get_entries;
-        $this->template->content = $view->render();
+        $entry                      = new Model_Entry();
+        $view                       = View::factory('cp/entries/list');
+        $view->entries              = $entry->get_entries_list();
+        $this->template->content    = $view->render();
     }
 
     public function action_edit()
     {
         $this->template->page_title = 'Edit Entry';
-        $entry_id = $this->request->param('id');
-        $view = View::factory('cp/entries/edit');
+        $entry_id                   = $this->request->param('id');
+        $view                       = View::factory('cp/entries/edit');
+
         if (empty($entry_id)) {
             throw new Exception('ID must not be empty!');
         }
 
-        $model_for_entries = Model::factory('entry');
-        $entry = $model_for_entries->get_entry_by_id($entry_id);
+        $entry = new Model_Entry();
+        $entry = $entry->get_entry_by_id($entry_id);
+
         if (!$entry) {
             throw new Exception('Not found!');
         }
+
         if ($this->request->method() === Request::POST) {
              if (!Security::check($this->request->post('csrf_token'))) {
 
@@ -35,13 +37,23 @@ class Controller_CP_Entries extends Controller_Template {
             }
             $post_title = $this->request->post('title');
             $post_content = $this->request->post('content');
-            $update_entry = $model_for_entries->update_entry($post_title, $post_content, $entry_id);
+            $data         = array(
+                'title' => $post_title,
+                'content' => $post_content,
+                );
+
+            $update_entry = $entry->update_entry($data, $entry_id);
+
             if (!$update_entry) {
                 throw new Exception('Check fields!');
             }
+
             Session::instance()->set('Entry.success', true);
+
             $this->request->redirect('cp/entries/edit/' . $entry_id);
+
         }
+
         $view->entries = $entry;
         $view->success = Session::instance()->get_once('Entry.success');
         $this->template->content = $view->render();
