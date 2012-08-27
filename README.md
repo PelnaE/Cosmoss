@@ -1,16 +1,8 @@
-#Cosmoss CMS Alpha 0.2.1
+# Cosmoss Blog (based on [Kohana 3.2](http://kohanaframework.org 'Kohana Framework'))
 
-Gatavs ir:  
-  
-*   Admin CP, kas ļauj pārvaldīt bloga sadaļas un ierakstus
-*   Sākumlapa ar lapošanu (pagination)
-*   Smuks fonts un viss pārējais
-*   Markdown atbalsts!
-*   Tulkojuma atbalsts!  
-  
-Domāju ieviest:  
-  
-*   Smaidiņu atbalstu (ja sanāks)
-*   Slikto vārdiņu cenzūra
-*   Dizainu atbalsts (ja sanāks)
-*   Meklēšanas dzinis (ja sanāks)
+## What is it?
+
+This is a blog. Based on Kohana 3.2.
+
+Follow me on [twitter - @reGative](https://twitter.com/reGative 'reGative on Twitter')
+and [read my blog](http://regative.posterous.com 'My Blog on Posterous')
