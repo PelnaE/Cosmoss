@@ -97,8 +97,9 @@ Cookie::$expiration = 604800;
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-    'database' => MODPATH . 'database', // Database access
-    'pagination' => MODPATH . 'pagination', //Pagination
+    'database'   => MODPATH . 'database',
+    'pagination' => MODPATH . 'pagination',
+    'darkmown'   => MODPATH . 'darkmown',
 ));
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
